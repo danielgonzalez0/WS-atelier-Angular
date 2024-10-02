@@ -1,0 +1,55 @@
+<form
+  #loginForm="ngForm"
+  (ngSubmit)="onsubmit(loginForm)"
+  class="form-container"
+>
+  <h2>Connexion</h2>
+  <fieldset>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="login.email"
+      #email="ngModel"
+      required
+      email
+      placeholder="saisir adresse mail"
+      [ngStyle]="{
+        border: email.errors && submitted ? 'solid 1px red' : null
+      }"
+    />
+    @if(email.errors && (email.dirty || email.touched || loginForm.submitted ||
+    submitted)) { @if(email.errors['required']) {
+    <span class="message error">Adresse mail requise</span>
+    } @if(email.errors['email']) {
+    <span class="message error">Adresse mail non valide</span>
+    } }
+  </fieldset>
+  <fieldset>
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="login.password"
+      #password="ngModel"
+      required
+      minlength="8"
+      placeholder="saisir mot de passe"
+      [ngStyle]="{
+        border: password.errors && submitted ? 'solid 1px red' : null
+      }"
+    />
+    @if(password.errors && (password.dirty || password.touched ||
+    loginForm.submitted || submitted)) { @if(password.errors['required']) {
+    <span class="message error">Mot de passe requis</span>
+    } @if(password.errors['minlength']) {
+    <span class="message error">Mot de passe avec 8 caractères minimum</span>
+    } }
+  </fieldset>
+  <button type="submit" class="btn">Login</button>
+</form>
+@if(formSubmittedWithSuccess) {
+<p class="message">formulaire soumis</p>
+}
