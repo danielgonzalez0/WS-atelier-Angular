@@ -21,4 +21,10 @@ export class AppComponent {
     { title: 'bouton D', color: 'black', bgColor: 'yellow' },
     { title: 'bouton E', color: 'white', bgColor: 'black' },
   ];
+
+  displayTitleOfChild(button: BtnStyle) {
+    console.log(
+      `j'ai cliqué sur le ${button.title} qui est de couleur: ${button.bgColor}`
+    );
+  }
 }

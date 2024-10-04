@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BtnStyle } from '../../models/buttons.models';
 
 @Component({
@@ -10,17 +10,16 @@ import { BtnStyle } from '../../models/buttons.models';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-
   // @Input() hoverBgColor: string = '#06b';
   // @Input() activeBgColor: string = '#08d';
   @Input() customStyle: BtnStyle = {
     title: 'default',
     color: '#eee',
-    bgColor: '#08d'
-  }
-  
-  
-  onclick(){
-    console.log(`bouton ${this.customStyle.title} click`);
+    bgColor: '#08d',
+  };
+  @Output() dataEmitToParent: EventEmitter<BtnStyle> = new EventEmitter();
+
+  sendTitleToParent(): void {
+    this.dataEmitToParent.emit(this.customStyle);
   }
 }

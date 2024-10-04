@@ -1,6 +1,9 @@
 <main class="wrapper">
   <h1>{{ title }}</h1>
   @for(button of buttons; track $index){
-  <app-button [customStyle]="button" />
+  <app-button
+    [customStyle]="button"
+    (dataEmitToParent)="displayTitleOfChild($event)"
+  />
   }
 </main>
