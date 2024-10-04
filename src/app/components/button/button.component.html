@@ -1,0 +1,10 @@
+<button
+  class="btn"
+  (click)="onclick()"
+  [ngStyle]="{
+    'background-color': customStyle.bgColor,
+    color: customStyle.color
+  }"
+>
+  {{ customStyle.title }}
+</button>
