@@ -1,0 +1,45 @@
+<form class="form-container" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <h2>Sign Up</h2>
+  <fieldset>
+    <Label for="firstname">First Name</Label>
+    <input
+      type="text"
+      id="firstname"
+      name="firstname"
+      placeholder="First name"
+      formControlName="firstName"
+    />
+    <!-- gestion erreur firstname-->
+    @if(signUpForm.controls['firstName'].errors ){
+    <span class="message error">{{ handleFieldErrors("firstName")}}</span>
+    }
+    <!-- gestion erreur firstname-->
+  </fieldset>
+  <fieldset>
+    <Label for="lastname">last Name</Label>
+    <input
+      type="text"
+      id="lastname"
+      name="lastname"
+      placeholder="Last name"
+      formControlName="lastName"
+    />
+    @if(signUpForm.controls['lastName'].errors ){
+    <span class="message error">{{ handleFieldErrors("lastName")}}</span>
+    }
+  </fieldset>
+  <fieldset>
+    <Label for="email">Email</Label>
+    <input
+      type="email"
+      id="email-signup"
+      name="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+    @if(signUpForm.controls['email'].errors ){
+    <span class="message error">{{ handleFieldErrors("email") }}</span>
+    }
+  </fieldset>
+  <button type="submit" class="btn">Sign Up</button>
+</form>
