@@ -19,7 +19,7 @@ export class ButtonComponent {
   };
   @Output() dataEmitToParent: EventEmitter<BtnStyle> = new EventEmitter();
 
-  sendTitleToParent(): void {
+  sendButtonInfoToParent(): void {
     this.dataEmitToParent.emit(this.customStyle);
   }
 }
