@@ -7,11 +7,11 @@
       id="firstname"
       name="firstname"
       placeholder="First name"
-      formControlName="firstName"
+      formControlName= "firstName"
     />
     <!-- gestion erreur firstname-->
     @if(signUpForm.controls['firstName'].errors ){
-    <span class="message error">{{ handleFieldErrors("firstName")}}</span>
+    <span class="message error">{{ handleFieldErrors('firstName')}}</span>
     }
     <!-- gestion erreur firstname-->
   </fieldset>
@@ -22,10 +22,11 @@
       id="lastname"
       name="lastname"
       placeholder="Last name"
-      formControlName="lastName"
+      formControlName= "lastName"
     />
+    <!-- gestion erreur lastname-->
     @if(signUpForm.controls['lastName'].errors ){
-    <span class="message error">{{ handleFieldErrors("lastName")}}</span>
+    <span class="message error">{{ handleFieldErrors('lastName')}}</span>
     }
   </fieldset>
   <fieldset>
@@ -37,8 +38,9 @@
       placeholder="Email"
       formControlName="email"
     />
+        <!-- gestion erreur email-->
     @if(signUpForm.controls['email'].errors ){
-    <span class="message error">{{ handleFieldErrors("email") }}</span>
+    <span class="message error">{{ handleFieldErrors('email') }}</span>
     }
   </fieldset>
   <button type="submit" class="btn">Sign Up</button>

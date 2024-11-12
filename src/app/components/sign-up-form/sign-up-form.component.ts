@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { InputType } from '../../models/Login.model';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -15,18 +16,18 @@ import {
   styleUrl: './sign-up-form.component.scss',
 })
 export class SignUpFormComponent {
-
   //attributs
+
   isSubmitted: boolean = false;
   formBuilder: FormBuilder = inject(FormBuilder);
   signUpForm: FormGroup = this.formBuilder.group({
     firstName: ['', [Validators.required, Validators.minLength(2)]],
     lastName: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-  }) as FormGroup;
+  });
 
-//méthodes
-  isFieldInError(field: string): boolean {
+  //méthodes
+  isFieldInError(field: InputType): boolean {
     const control = this.signUpForm.controls[field];
     if (control.invalid && control.dirty) return true;
     if (control.invalid && control.touched) return true;
@@ -54,9 +55,9 @@ export class SignUpFormComponent {
     return '';
   }
 
-  handleFieldErrors(fieldName: string): string {
-    
+  handleFieldErrors(fieldName: InputType): string {
     const field = this.signUpForm.controls[fieldName];
+
     if (this.isFieldInError(fieldName)) {
       switch (fieldName) {
         case 'firstName':
