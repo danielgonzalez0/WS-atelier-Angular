@@ -1,0 +1,5 @@
+<p>pokemon-list works!</p>
+@for(pokemon of pokemonList; track pokemon.id){
+  <img [src]="pokemon.images.small" [alt]="pokemon.name">
+}
+
